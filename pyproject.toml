@@ -20,7 +20,7 @@ classifiers = [
 include = ["*.yaml"]
 
 packages = [
-    { include = "gen2-acl-bundle", from = "src" },
+    { include = "gen2aclbundle", from = "src" },
 ]
 
 [tool.poetry.dependencies]
