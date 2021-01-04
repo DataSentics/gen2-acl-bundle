@@ -25,15 +25,19 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "~3.7.3"
-pyfony-bundles = "0.2.*"
+pyfony-bundles = "^0.3.0"
 azure-storage-file-datalake = "12.0.0"
 pandas = "0.25.*"
-console-bundle = "0.2.*"
+console-bundle = "^0.3.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "2.4.*"
-pyfony = "^0.4.0"
+pyfony-core = "^0.7.0"
 pytest = "5.2.*"
 
-[app]
-container-init = ["gen2aclbundle.containerInit", "initContainer"]
+[tool.poetry.plugins."pyfony.bundle"]
+create = "gen2aclbundle.Gen2AclBundle:Gen2AclBundle"
+
+[pyfony.bootstrap]
+containerInit = "pyfonycore.container.containerInit:initWithCurrentBundle"
+rootModuleName = "gen2aclbundle"
